@@ -56,15 +56,9 @@
         </div>
       </div>
       <div class="col-sm-2">
-        <div class="fileinput fileinput-new" data-provides="fileinput">
-          <span class="btn btn-default btn-file"><span>Choose file</span>
-            <input type="file"  name="image[]" accept="image/gif|image/jpeg|image/png|image/jpg">
-          </span>
-          <span class="fileinput-filename"></span><span class="fileinput-new">No file chosen</span>
-        </div>
-          <!--<span class="btn btn-default btn-file">
+          <span class="btn btn-default btn-file">
               Browse <input type="file" name="image[]" accept="image/gif|image/jpeg|image/png|image/jpg">
-          </span>-->
+          </span>
        </div>
     </div>
     @endforeach
@@ -91,15 +85,9 @@
         </div>
       </div>
       <div class="col-sm-2">
-        <div class="fileinput fileinput-new" data-provides="fileinput">
-          <span class="btn btn-default btn-file"><span>Choose file</span>
-            <input type="file" name="image[]" accept="image/gif|image/jpeg|image/png|image/jpg">
-          </span>
-          <span class="fileinput-filename"></span><span class="fileinput-new">No file chosen</span>
-        </div>
-          <!--<a class="btn btn-default btn-file">
-              Browse <input type="file" name="image[]" accept="image/gif|image/jpeg|image/png|image/jpg" >
-          </a>-->
+        <a class="btn btn-default btn-file">
+            Browse <input type="file" name="image[]" accept="image/gif|image/jpeg|image/png|image/jpg" >
+        </a>
     </div>
 
 

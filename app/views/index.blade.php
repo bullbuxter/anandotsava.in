@@ -118,7 +118,7 @@ $(window).scroll(function (event) {
     else
       $('.navbar-brand img').removeClass('shrink');
 });
-var d = new Date("February 25, 2016 10:00:00:000");
+var d = new Date(1456374600000);
 var mill = d.getTime();
 var now = $.now();
 var diff = mill - now;
@@ -131,30 +131,30 @@ var time = {
   "minutes" : parseInt(totMin % 60),
   "seconds" : parseInt(totSec % 60)
 }
-$("#time #dDays").text(pad(time.days));
-$("#time #dHours").text(pad(time.hours));
-$("#time #dMins").text(pad(time.minutes));
-$("#time #dSecs").text(pad(time.seconds));
+$("#time #dDays").html(pad(time.days));
+$("#time #dHours").html(pad(time.hours));
+$("#time #dMins").html(pad(time.minutes));
+$("#time #dSecs").html(pad(time.seconds));
 setInterval(function() {
   time.seconds--;
   if(time.seconds < 0) {
     time.minutes--;
-    $("#time #dMins").text(pad(time.minutes));
+    $("#time #dMins").html(pad(time.minutes));
     time.seconds = 59;
   }
   if(time.minutes < 0) {
     time.hours--;
     time.minutes = 59;
-    $("#time #dHours").text(pad(time.hours));
-    $("#time #dMins").text(pad(time.minutes));
+    $("#time #dHours").html(pad(time.hours));
+    $("#time #dMins").html(pad(time.minutes));
   }
   if(time.hours < 0) {
     time.days--;
     time.hours = 23;
-    $("#time #dDays").text(pad(time.days));
-    $("#time #dHours").text(pad(time.hours));
+    $("#time #dDays").html(pad(time.days));
+    $("#time #dHours").html(pad(time.hours));
   }
-  $("#time #dSecs").text(pad(time.seconds));
+  $("#time #dSecs").html(pad(time.seconds));
 }, 1000);
 function pad(item) {
   if(item > 9)
