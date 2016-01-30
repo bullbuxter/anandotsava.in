@@ -17,40 +17,6 @@
   transition: ease-in 0.5s;
   -webkit-filter: blur(10px);
 }
-.arrow{
-  width:130px;
-  height:50px;
-  background:transparent;
-  display: inline-block;
-  text-align: left;
-}
-.arrow p {
-  display: inline;
-  font-size: large;
-  position: absolute;
-  padding-left: 15px;
-}
-.arrow:after{
-  position:absolute;
-  content:"";
-  width:130px;
-  height:20px;
-  border-left:5px solid #01dea1;
-  border-right:5px solid #01dea1;
-  border-top:4px solid #01dea1;
-  transform:skew(-45deg);
-}
-.arrow:before{
-  margin-top: 20px;
-  position:absolute;
-  content:"";
-  width:130px;
-  height:20px;
-  border-left:5px solid #01dea1;
-  border-right:5px solid #01dea1;
-  border-bottom:4px solid #01dea1;
-  transform:skew(45deg);
-}
 .navbar-brand {
   height: auto;
   padding: 0px 15px 10px 15px;
@@ -364,19 +330,74 @@ padding-left:.4rem;
   position: inherit;
 }
 #regWrapper {
-  background: url('../img/reg_background.png') top center repeat;
+  background: #464646;
   position: fixed;
   width: 100%;
   top: 0;
   bottom: 0;
-  border-top: solid 2px #01dea1;
   text-align: center;
   padding: 10px;
 }
+#regInner img {
+  height: 40px;
+  width: 160px;
+  margin: 0 auto 10px auto;
+}
 #regWrapper form {
-  max-width: 320px;
+  max-width: 400px;
   margin-left: auto;
   margin-right: auto;
+  background-color: #393939;
+  padding: 15px;
+  border-top: solid 4px #E21312;
+  position: relative;
+}
+#regWrapper form:after, #regWrapper form:before {
+  top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+#regWrapper form:after {
+  transition: 0.5ms ease-in;
+  border-color: rgba(136, 183, 213, 0);
+	border-width: 15px;
+	margin-left: -30px;
+}
+#regWrapper form.coll:before {
+  border-color: rgba(194, 225, 245, 0);
+	border-top-color: #393939;
+	border-width: 15px;
+	margin-left: -123px;
+}
+#regWrapper form.fs:before {
+  border-color: rgba(194, 225, 245, 0);
+	border-top-color: #393939;
+	border-width: 15px;
+	margin-left: 0;
+}
+#regWrapper form.botb:before {
+  border-color: rgba(194, 225, 245, 0);
+	border-top-color: #393939;
+	border-width: 15px;
+	margin-left: 106px;
+}
+#belowForm {
+  padding-top: 10px;
+}
+#belowForm h4 {
+  display: inline-block;
+  padding: 5px;
+  font-weight: 800;
+  color: rgba(0,0,0,0.6);
+  cursor: pointer;
+}
+#belowForm h4.active {
+  color: #00BACF;
 }
 #regWrapper span.input-group-addon {
   background-color: #1D1F2E;

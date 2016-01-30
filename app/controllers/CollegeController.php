@@ -1,29 +1,39 @@
 <?php
 class CollegeController extends BaseController {
   public $restful = true;
-  public function validate() {
-    $row = CollCred::find(Input::get('id'));
+  public function validate($field) {
+    switch($field) {
+      case 'coll': $row = CollCred::find(Input::get('id')); break;
+      case 'fs': $row = FsCred::find(Input::get('id')); break;
+      case 'botb': $row = BotbCred::find(Input::get('id')); break;
+      default: $row = CollCred::find(Input::get('id')); break;
+    }
     if(!$row)
       return Redirect::to('reg')
-        ->with('type', 'id')
-        ->with('err', 'Invalid college id');
+        ->with('err', [$field, 'id']);
     if(strcmp($row->passwd, md5(Input::get('passwd'))))
       return Redirect::to('reg')
-        ->with('type', 'passwd')
-        ->with('err', 'Invalid college id / password combination');
-    Session::put('collId', $row->id);
-    return Redirect::to('member');
+        ->with('err', [$field, 'passwd']);
+    Session::put('sense', [$field, $row->id]);
+    return Redirect::to('member/' . $field);
   }
-  public function member() {
-    if(Session::has('collId'))
-      return View::make('member')
-        ->with('link', 'Member')
-        ->with('data', CollDetails::find(Session::get('collId')));
+  public function member($field) {
+    if(Session::has('sense')) {
+      switch(Session::get('sense')[0]) {
+        case 'coll': $data = CollDetails::find(Session::get('sense')[1]); break;
+        case 'fs': $data = FsDetails::find(Session::get('sense')[1]); break;
+        case 'botb': $data = BotbDetails::find(Session::get('sense')[1]); break;
+        default: $data = CollDetails::find(Session::get('sense')[1]);
+      }
+      return View::make($field)
+        ->with('title', 'Member')
+        ->with('data', $data);
+    }
     return Redirect::to('reg');
   }
   public function updateDetails() {
-    if(Session::has('collId')) {
-      $cId = Session::get('collId');
+    if(Session::has('sense')) {
+      $cId = Session::get('sense')[1];
       $tmp = Participant::where('cId', $cId);
       $phone = Input::get('pPhone');
       if($tmp)
@@ -39,12 +49,21 @@ class CollegeController extends BaseController {
           $p->save();
         }
       }
-      return Redirect::to('member');
+      return Redirect::to('member/coll');
     }
     return Redirect::to('reg');
   }
   public function logout() {
     Session::pull('collId');
+    return Redirect::to('reg');
+  }
+  public function evReg() {
+    if(Session::has('sense')) {
+      return View::make('eventsReg')
+        ->with('title', 'Member')
+        ->with('events', Events::all())
+        ->with('college', CollDetails::find(Session::get('sense')[1]));
+    }
     return Redirect::to('reg');
   }
 }
