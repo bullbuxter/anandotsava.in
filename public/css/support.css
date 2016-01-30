@@ -1,0 +1,76 @@
+@media screen and (max-width: 480px) {
+  .navbar-brand img {
+    height: 50px;
+    width: 200px;
+  }
+  #contactsWrapper {
+    width: 100%;
+  }
+  #toggleNav {
+    display: inline-block;
+  }
+  #abvTime img:nth-child(1) {
+    height: 100px;
+    width: 90px;
+  }
+  #abvTime img:nth-child(2) {
+    height: 40px;
+    width: 150px;
+  }
+  #time {
+    font-size: 50px;
+  }
+  #myNavbar {
+    position: fixed;
+    display: none;
+    left: -100px;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.5);
+    color: black !important;
+    height: 100%;
+    width: 75%;
+    box-shadow: blur;
+  }
+  #myNavbar ul li a {
+    color: black !important;
+    font-size: 23px;
+  }
+  #topbarInner .col-xs-2 span:nth-child(2) {
+    display: none;
+  }
+  #sidebar {
+    width: 200px;
+  }
+  .material-card {
+    margin-bottom: 5px !important;
+    width: 240px;
+  }
+  .material-card .mc-btn-action {
+    right: 0;
+  }
+  .material-card.mc-active .mc-description {
+    padding: 6px;
+  }
+}
+@media screen and (max-width: 350px) {
+  #time {
+    font-size: 45px;
+  }
+  .navbar-toggle {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 800px) {
+  #section2 {
+    height: 820px;
+  }
+  .adjust {
+    padding-left: 0;
+  }
+  #EventsWrapper {
+    padding: 20px;
+  }
+  .material-card h2 {
+    top: calc(100% - 62px) !important;
+  }
+}
