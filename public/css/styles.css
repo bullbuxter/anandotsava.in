@@ -49,7 +49,7 @@ ul.nav a {
 }
 ul.nav a:hover {
   background-color: transparent;
-  color: #EEE !important;
+  color: #555 !important;
 }
 .activeNav {
   background-color: transparent;

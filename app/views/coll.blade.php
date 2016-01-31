@@ -10,16 +10,17 @@
                         <strong>Participants</strong>
                 </li>
                 <li>
-                    <a href="coll/events">Event Registration</a>
+                    <a href="coll/events"><span class="fa fa-pencil-square-o "></span> Event Registration</a>
+                </li>
+
+                <li>
+                    <a href="#"><span class="fa fa-inr "></span> Payment</a>
                 </li>
                 <li>
-                    <a href="#">Payment</a>
+                    <a href="#"><span class="fa fa-print "></span> Print</a>
                 </li>
                 <li>
-                    <a href="#">Print</a>
-                </li>
-                <li>
-                    <a href="member/logout">Logout</a>
+                    <a href="member/logout"><span class="fa fa-sign-out "></span> Logout</a>
                 </li>
             </ul>
         </div>
@@ -123,7 +124,7 @@ $(document).ready(function(){
         $(formContainer).append('<div class="form-group row"> <div class="col-sm-1"> <label>'+fieldCount+'.</label> </div> <div class="col-sm-5"> <input type="text" name="pName[]" class="form-control" placeholder="Enter name" maxlength="32"> </div> <div class="col-sm-4"> <div class="input-group"> <span class="input-group-addon">+91</span> <input type="text" name="pPhone[]" class="form-control" placeholder="Enter phone no" maxlength="10"> </div> </div> <div class="col-sm-2"> <span class="btn btn-default btn-file"> Browse <input type="file" name="image[]" accept="image/gif|image/jpeg|image/png|image/jpg"> </span> </div> </div>');
     });
 });
-$("html,#main,#sidebar-wrapper").css("background-color","#9FA8DA");
+$("html,#main").css("background-color","#E8EAF6");
 $('span.pad').each(function() {
   if($(this).html() < 9)
     $(this).html('0' + $(this).html());
